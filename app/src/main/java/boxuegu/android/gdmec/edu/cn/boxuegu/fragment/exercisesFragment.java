@@ -1,10 +1,12 @@
-package boxuegu.android.gdmec.edu.cn.boxuegu;
+package boxuegu.android.gdmec.edu.cn.boxuegu.fragment;
 
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.os.Bundle;
+
+import boxuegu.android.gdmec.edu.cn.boxuegu.R;
 
 
 public class exercisesFragment extends Fragment  {

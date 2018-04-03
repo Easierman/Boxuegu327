@@ -1,15 +1,23 @@
-package boxuegu.android.gdmec.edu.cn.boxuegu;
+package boxuegu.android.gdmec.edu.cn.boxuegu.activity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import boxuegu.android.gdmec.edu.cn.boxuegu.fragment.FragmentMyinfoFragment;
+import boxuegu.android.gdmec.edu.cn.boxuegu.R;
+import boxuegu.android.gdmec.edu.cn.boxuegu.fragment.courseFragment;
+import boxuegu.android.gdmec.edu.cn.boxuegu.fragment.exercisesFragment;
+import boxuegu.android.gdmec.edu.cn.boxuegu.utils.AnalysisUtils;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener{
 
@@ -24,6 +32,39 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ImageView bottom_bar_image_myinfo;
     private RelativeLayout bottom_bar_myinfo_btn;
     private LinearLayout main_bottom_bar;
+    protected long exitTime;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return super.onKeyDown(keyCode, event);
+        if (keyCode==KeyEvent.KEYCODE_BACK&&event.getAction()==KeyEvent.ACTION_DOWN){
+            if ((System.currentTimeMillis()-exitTime)>2000){
+               Toast.makeText(MainActivity.this,"再按一次退出博学谷",Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            }else{
+                this.finish();
+                if (AnalysisUtils.readLoginStatus(this)){
+                    AnalysisUtils.clearLoginStatus(this);
+                }
+                System.exit(0);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode,event);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (data!=null){
+            boolean isLogin = data.getBooleanExtra("isLogin",false);
+            if (isLogin){
+                setSelectStatus(0);
+            }else{
+                setSelectStatus(2);
+            }
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +77,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     }
 
     private void setMain(){
-        this.getSupportFragmentManager().beginTransaction().add(R.id.main_body,new myinfoFragment()).commit();
+        this.getSupportFragmentManager().beginTransaction().add(R.id.main_body,new FragmentMyinfoFragment()).commit();
         setSelectStatus(2);
     }
     private void setSelectStatus(int index) {
@@ -106,7 +147,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 setSelectStatus(1);
                 break;
             case R.id.bottom_bar_myinfo_btn:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new myinfoFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new FragmentMyinfoFragment()).commit();
                 setSelectStatus(2);
                 break;
         }
