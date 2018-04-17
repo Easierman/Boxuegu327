@@ -9,7 +9,7 @@ import android.content.SharedPreferences;
 
 public class AnalysisUtils{
     //读取用户名
-    public static String readloginUserName(Context context) {
+    public static String readLoginUserName(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
         String userName = sharedPreferences.getString("loginUserName", "");
         return userName;
@@ -17,7 +17,7 @@ public class AnalysisUtils{
     //读取登录状态
     public static boolean readLoginStatus(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
-        boolean isLogin = sharedPreferences.getBoolean("loginUserName", false);
+        boolean isLogin = sharedPreferences.getBoolean("islogin", false);
         return isLogin;
     }
     //清除登录状态

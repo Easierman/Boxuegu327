@@ -35,7 +35,7 @@ public class ActivityModifyPswActivity extends Activity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_psw);
         initView();
-        userName= AnalysisUtils.readloginUserName(this);
+        userName= AnalysisUtils.readLoginUserName(this);
     }
 
 

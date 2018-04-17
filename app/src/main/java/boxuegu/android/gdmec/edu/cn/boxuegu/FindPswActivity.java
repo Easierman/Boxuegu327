@@ -123,7 +123,7 @@ public class FindPswActivity extends AppCompatActivity {
     private void saveSecurity(String validateName){
         SharedPreferences sp = getSharedPreferences("loginInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();//获取编辑器
-        editor.putString(AnalysisUtils.readloginUserName(this)+"_security",validateName);
+        editor.putString(AnalysisUtils.readLoginUserName(this)+"_security",validateName);
         editor.commit();
     }
 /*

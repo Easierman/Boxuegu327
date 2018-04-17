@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="gbk"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:background="@drawable/login_bg"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
- 
+
     <include layout="@layout/main_title_bar"/>
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
         android:layout_marginTop="35dp"
-        android:text="ÄúµÄÓÃ»§ÃûÊÇ?"
+        android:text="æ‚¨çš„ç”¨æˆ·åæ˜¯?"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:visibility="gone"/>
@@ -27,7 +27,7 @@
         android:layout_marginRight="35dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/find_psw_icon"
-        android:hint="ÇëÊäÈëÄúµÄÓÃ»§Ãû"
+        android:hint="è¯·è¾“å…¥æ‚¨çš„ç”¨æˆ·å"
         android:paddingLeft="8dp"
         android:singleLine="true"
         android:textColor="#000000"
@@ -40,7 +40,7 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
         android:layout_marginTop="15dp"
-        android:text="ÄúµÄÐÕÃûÊÇ£º"
+        android:text="æ‚¨çš„å§“åæ˜¯ï¼š"
         android:textColor="@android:color/white"
         android:textSize="18dp"/>
 
@@ -52,7 +52,7 @@
         android:layout_marginRight="35dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/find_psw_icon"
-        android:hint="ÇëÊäÈëÒªÑéÖ¤µÄÐÕÃû"
+        android:hint="è¯·è¾“å…¥è¦éªŒè¯çš„å§“å"
         android:paddingLeft="8dp"
         android:singleLine="true"
         android:textColor="#000000"
@@ -79,7 +79,7 @@
         android:layout_marginRight="35dp"
         android:layout_marginLeft="35dp"
         android:background="@drawable/register_selector"
-        android:text="Ñé Ö¤"
+        android:text="éªŒ è¯"
         android:textColor="@android:color/white"
         android:textSize="18sp"/>
 </LinearLayout>

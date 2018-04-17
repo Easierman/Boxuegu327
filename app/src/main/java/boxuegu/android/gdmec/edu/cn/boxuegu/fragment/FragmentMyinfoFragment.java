@@ -1,9 +1,10 @@
 package boxuegu.android.gdmec.edu.cn.boxuegu.fragment;
 
-import android.app.Fragment;
+
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -47,8 +48,8 @@ public class FragmentMyinfoFragment extends Fragment implements View.OnClickList
         rlSetting = (RelativeLayout) view.findViewById(R.id.rl_setting);
         ivUserinfoIcon = (ImageView) view.findViewById(R.id.iv_userinfo_icon);
 
-        if (ActivityInfo.readLoginStatus(getActivity())){
-            tvUserName.setText(AnalysisUtils.readloginUserName(getActivity()));
+        if (AnalysisUtils.readLoginStatus(getActivity())){
+            tvUserName.setText(AnalysisUtils.readLoginUserName(getActivity()));
         }else{
             tvUserName.setText("点击登录");
         }
@@ -71,9 +72,9 @@ public class FragmentMyinfoFragment extends Fragment implements View.OnClickList
                 break;
             case R.id.rl_course_history:
                 if (AnalysisUtils.readLoginStatus(getActivity())){
-                    //转跳到播放记录页面
+
                 }else{
-                    Toast.makeText(getActivity(),"您未登录，请先登录",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "请先登录", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.rl_setting:

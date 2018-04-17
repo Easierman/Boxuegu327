@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import boxuegu.android.gdmec.edu.cn.boxuegu.R;
 import boxuegu.android.gdmec.edu.cn.boxuegu.utils.AnalysisUtils;
 import boxuegu.android.gdmec.edu.cn.boxuegu.utils.MD5Utils;
@@ -161,7 +160,7 @@ public class ActivityFindPswActivity extends Activity implements View.OnClickLis
     private void saveSecurity(String validateName){
         SharedPreferences sp = getSharedPreferences("loginInfo",MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.putString(AnalysisUtils.readloginUserName(this)+"_security",validateName);
+        editor.putString(AnalysisUtils.readLoginUserName(this)+"_security",validateName);
         editor.commit();
     }
 }
