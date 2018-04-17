@@ -63,7 +63,7 @@ public class ActivityModifyPswActivity extends Activity implements View.OnClickL
         et_new_psw_again = (EditText) findViewById(R.id.et_new_psw_again);
         btn_save = (Button) findViewById(R.id.btn_save);
 
-        tv_main_title.setText("设置密码");
+        tv_main_title.setText("修改密码");
 
         btn_save.setOnClickListener(this);
         tv_back.setOnClickListener(this);

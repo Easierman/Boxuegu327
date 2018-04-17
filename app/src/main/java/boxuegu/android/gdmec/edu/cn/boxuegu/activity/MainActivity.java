@@ -59,7 +59,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         if (data!=null){
             boolean isLogin = data.getBooleanExtra("isLogin",false);
             if (isLogin){
-                setSelectStatus(0);
+                setSelectStatus(2);
             }else{
                 setSelectStatus(2);
             }
@@ -83,6 +83,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private void setSelectStatus(int index) {
         switch (index){
             case 0:
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new courseFragment()).commit();
+
                 bottom_bar_image_course.setImageResource(R.drawable.main_course_icon_selected);
                 bottom_bar_text_course.setTextColor(Color.parseColor("#0097f7"));
 
@@ -94,6 +96,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
 
             case 1:
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new exercisesFragment()).commit();
+
                 bottom_bar_image_exercises.setImageResource(R.drawable.main_exercises_icon_selected);
                 bottom_bar_text_exercises.setTextColor(Color.parseColor("#0097f7"));
 
@@ -105,6 +109,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
 
             case 2:
+                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new FragmentMyinfoFragment()).commit();
+
                 bottom_bar_image_myinfo.setImageResource(R.drawable.main_exercises_icon_selected);
                 bottom_bar_text_myinfo.setTextColor(Color.parseColor("#0097f7"));
 
@@ -139,15 +145,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.bottom_bar_course_btn:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new courseFragment()).commit();
                 setSelectStatus(0);
                 break;
             case R.id.bottom_bar_exercises_btn:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new exercisesFragment()).commit();
                 setSelectStatus(1);
                 break;
             case R.id.bottom_bar_myinfo_btn:
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_body,new FragmentMyinfoFragment()).commit();
                 setSelectStatus(2);
                 break;
         }

@@ -64,6 +64,9 @@ public class ActivitySettingActivity extends Activity implements View.OnClickLis
                 break;
             case R.id.rl_security_setting:
                 //设置密保
+                Intent intent2 = new Intent(ActivitySettingActivity.this,ActivityFindPswActivity.class);
+                intent2.putExtra("from","security");
+                startActivity(intent2);
                 break;
             case R.id.rl_exit_login:
                 //退出登录，即清除登录状态

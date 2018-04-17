@@ -17,7 +17,7 @@ public class AnalysisUtils{
     //读取登录状态
     public static boolean readLoginStatus(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("loginInfo", Context.MODE_PRIVATE);
-        boolean isLogin = sharedPreferences.getBoolean("islogin", false);
+        boolean isLogin = sharedPreferences.getBoolean("isLogin", false);
         return isLogin;
     }
     //清除登录状态
